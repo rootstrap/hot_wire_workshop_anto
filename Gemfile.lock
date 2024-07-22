@@ -610,7 +610,7 @@ GEM
       concurrent-ruby (~> 1.0)
     unicode-display_width (2.5.0)
     uri (0.13.0)
-    view_component (3.12.1)
+    view_component (3.13.0)
       activesupport (>= 5.2.0, < 8.0)
       concurrent-ruby (~> 1.0)
       method_source (~> 1.0)
@@ -707,7 +707,7 @@ DEPENDENCIES
   strong_migrations (~> 2.0)
   turbo-rails (= 2.0.0.pre.beta.2)
   tzinfo-data
-  view_component (~> 3.7)
+  view_component (~> 3.13)
   webmock (~> 3.23)
   yaaf (~> 2.2)
 

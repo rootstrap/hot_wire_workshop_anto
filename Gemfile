@@ -37,7 +37,7 @@ gem 'sprockets', '~> 4.2.1'
 gem 'stimulus-rails', '~> 1.3'
 gem 'strong_migrations', '~> 2.0'
 gem 'turbo-rails', '2.0.0.pre.beta.2'
-gem 'view_component', '~> 3.7'
+gem 'view_component', '~> 3.13'
 gem 'yaaf', '~> 2.2'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
