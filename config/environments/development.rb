@@ -87,4 +87,6 @@ Rails.application.configure do
 
   # ViewComponent Previews
   config.view_component.preview_paths << "#{Rails.root}/spec/components/previews"
+
+  config.assets.css_compressor = nil
 end

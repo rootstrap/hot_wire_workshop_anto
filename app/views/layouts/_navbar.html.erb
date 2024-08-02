@@ -1,0 +1,10 @@
+<div class="flex bg-black h-24 md:h-14 px-6 gap-10 justify-around m-auto" >
+    <%= link_to "index", class: 'h-10 w-48 my-auto' do %>
+      <%= image_tag("logo") %>
+    <% end %>
+    <%= link_to "shopping_cart_path", class: 'h-10 w-18 p-2 border inline-flex text-white rounded my-auto' do %>
+      <span class="font-sans text-sm text-white hidden md:inline"> Shoping Cart </span>
+      <%= image_tag("cart") %>
+    <% end %>
+</div>
+
