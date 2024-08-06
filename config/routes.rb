@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root to: 'home_page#index'
 
   get 'home_page/index'
+  get 'products/index'
 
   scope format: :json do
     mount_devise_token_auth_for 'User', at: '/api/v1/users', controllers: {

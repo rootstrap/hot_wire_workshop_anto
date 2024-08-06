@@ -5,6 +5,8 @@
 # Should you just cherry pick part of this file, please maintain the require-order of the extras
 
 
+stylesheet_path = Pagy.root.join('stylesheets', 'pagy.tailwind.css')
+
 # Pagy DEFAULT Variables
 # See https://ddnexus.github.io/pagy/docs/api/pagy#variables
 # All the Pagy::DEFAULT are set for all the Pagy instances but can be overridden per instance by just passing them to
