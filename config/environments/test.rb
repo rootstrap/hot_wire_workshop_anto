@@ -65,7 +65,7 @@ Rails.application.configure do
   # config.action_controller.raise_on_missing_callback_actions = true
 
   # Use test adapter for ActiveJob
-  config.active_job.queue_adapter = :test\
+  config.active_job.queue_adapter = :test
 
   config.assets.css_compressor = nil
 end
