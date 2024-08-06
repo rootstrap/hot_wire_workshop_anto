@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root to: 'home_page#index'
+
+  get 'home_page/index'
+
   scope format: :json do
     mount_devise_token_auth_for 'User', at: '/api/v1/users', controllers: {
       registrations: 'api/v1/registrations',
@@ -29,6 +33,8 @@ Rails.application.routes.draw do
       mount Flipper::UI.app(Flipper) => '/feature-flags'
     end
   end
+
+  resource :shopping_cart, only: %i[show]
 
   mount Rswag::Ui::Engine => '/api-docs'
   mount Rswag::Api::Engine => '/api-docs'
