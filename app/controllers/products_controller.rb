@@ -6,6 +6,6 @@ class ProductsController < ApplicationController
 
   def index
     query = Product.order(id: :desc)
-    @pagy, @products = pagy(query, items: 2)
+    @pagy, @products = pagy(query, items: 3)
   end
 end

@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  include Pundit::Authorization
   include Pagy::Backend
+  include Pundit::Authorization
 
   after_action :verify_authorized,
                except: :index,

@@ -1,8 +1,8 @@
 <div class="flex flex-col max-w-4xl">
   <% @products.each do |product| %>
-      <div class="flex flex-row border rounded lg:mb-2">
+      <div class="flex flex-row border rounded-lg lg:my-2 lg:shadow-lg shadow-black-500/50">
         <%= image_tag("http://via.placeholder.com/512", class: "h-4xl lg:w-48 w-28") %>
-        <div class="w-44 m-auto">
+        <div class="w-44 m-auto shadow-cyan-500/50">
         <h3 class="w-48 font-sans font-bold text-lg p-1"><%= product.name %></h2>
         <span class="bg-lime-600 rounded text-sm text-white p-1"><%= product.status %></span>
         <h3 class="font-sans text-lg p-1">$ <%= product.unit_price %></h3>
