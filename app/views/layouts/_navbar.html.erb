@@ -2,16 +2,20 @@
     <%= link_to root_path, class: 'my-auto' do %>
       <%= image_tag("logo") %>
     <% end %>
-    <div class="flex flex-col md:flex-row items-start md:items-center justify-betwee w-full">
-    <%= form_with url: products_path, method: :get, data: { controller: 'search-product', search_product_target: 'form' } do |f| %>
-      <%= search_field_tag :q, params[:q], class: "text-gray-800", placeholder: "Search...", data: { action: "input->search-product#submit" } %>
-    <% end %>
+    
+  <div class="flex flex-col md:flex-row items-start md:items-center justify-between w-full">
+  <form data-controller="search-product" data-turbo-frame="product_list" data-search-target="form" action="/products" accept-charset="UTF-8" method="get">
+    <input type="search" name="q" id="q" class="text-gray-800" placeholder="Search..." data-action="input->search-product#submit" />
+  </form>
+</div>
 
-    </div>
+
+
+
 
 
    <%= link_to "shopping_cart_path", class: 'p-3 px-5 border rounded mx-auto inline-flex items-center' do %>
-      <span class="font-sans text-sm text-white hidden lg:inline whitespace-nowrap">Shopping Cart</span>
+      <span class="font-sans text-sm text-white hidden lg:inline whitespace-nowrap"><%= I18n.t('views.nav_bar.shopping_cart') %></span>
       <%= image_tag("cart", class: 'inline lg:px-1') %>
   <% end %>
 </div>

@@ -4,15 +4,15 @@
       <form action="/products" accept-charset="UTF-8" method="get" data-turbo-frame="product_list">
         <div class="flex flex-col space-y-2">
           <label class="inline-flex items-center text-base font-normal">
-            <%= radio_button_tag :status, 'brand_new', @selected_status == 'brand_new', class: "form-radio accent-black" %>
+            <%= radio_button_tag :status, 'brand_new', class: "form-radio accent-black" %>
             <span class="ml-2">New</span>
           </label>
           <label class="inline-flex items-center text-base font-normal">
-            <%= radio_button_tag :status, 'used', @selected_status == 'used', class: "form-radio accent-black" %>
+            <%= radio_button_tag :status, 'used', class: "form-radio accent-black" %>
             <span class="ml-2">Used</span>
           </label>
           <label class="inline-flex items-center text-base font-normal">
-            <%= radio_button_tag :status, 'other', @selected_status == 'other', class: "form-radio accent-black" %>
+            <%= radio_button_tag :status, 'other', class: "form-radio accent-black" %>
             <span class="ml-2">Other</span>
           </label>
           <input type="submit" name="commit" value="See Results" class="bg-black text-white py-2 px-4 rounded-md w-40 mt-4" data-disable-with="See Results">
