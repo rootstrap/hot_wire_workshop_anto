@@ -1,24 +1,49 @@
-<%= turbo_frame_tag 'product_list' do %>
-  <div class="flex flex-col max-w-4xl">
-    <% if @products.empty? %>
-      <p class="text-2xl text-left text-gray-800">No products found</p>
-    <% else %>
-      <% @products.each do |product| %>
-          <div class="flex flex-row border rounded-lg lg:my-2 lg:shadow-lg shadow-black-500/50">
-            <%= image_tag("http://via.placeholder.com/512", class: "h-4xl lg:w-48 w-28") %>
-            <div class="w-44 m-auto shadow-cyan-500/50">
-            <h3 class="w-48 font-sans font-bold text-lg p-1"><%= product.name %></h2>
-            <span class="bg-lime-600 rounded text-sm text-white p-1"><%= product.status %></span>
-            <h3 class="font-sans text-lg p-1">$ <%= product.unit_price %></h3>
-            </div>
-            <div class="flex flex-col items-center m-auto bg-black w-32 h-11 rounded">
-            <%= link_to shopping_cart_path(product) do %>
-              <span class="font-sans text-sm text-white m-auto"> Add to cart </span>
-            <% end %>
-            </div>
-          </div>
-      <% end %>
-      <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
-    <% end %>
+<div class="flex max-w-[1200px] mx-auto p-4 gap-10">
+  <div class="w-60 h-auto p-4 shadow-md">
+    <span class="block text-lg font-bold mb-4">Filters</span>
+      <form action="/products" accept-charset="UTF-8" method="get" data-turbo-frame="product_list">
+        <div class="flex flex-col space-y-2">
+          <label class="inline-flex items-center text-base font-normal">
+            <%= radio_button_tag :status, 'brand_new', class: "form-radio accent-black" %>
+            <span class="ml-2">New</span>
+          </label>
+          <label class="inline-flex items-center text-base font-normal">
+            <%= radio_button_tag :status, 'used', class: "form-radio accent-black" %>
+            <span class="ml-2">Used</span>
+          </label>
+          <label class="inline-flex items-center text-base font-normal">
+            <%= radio_button_tag :status, 'other', class: "form-radio accent-black" %>
+            <span class="ml-2">Other</span>
+          </label>
+          <input type="submit" name="commit" value="See Results" class="bg-black text-white py-2 px-4 rounded-md w-40 mt-4" data-disable-with="See Results">
+        </div>
+      </form>
   </div>
-<% end %>
+
+ <div class="flex-1">
+    <turbo-frame id="product_list">
+      <div class="flex flex-col max-w-4xl">
+        <% if @products.empty? %>
+          <p class="text-2xl text-left text-gray-800">No products found</p>
+        <% else %>
+          <% @products.each do |product| %>
+            <div class="flex flex-row border rounded-lg lg:my-2 lg:shadow-lg shadow-black-500/50 mb-4 bg-white">
+              <img class="h-4xl lg:w-48 w-28" src="http://via.placeholder.com/512" alt="Product Image">
+              <div class="w-44 m-auto shadow-cyan-500/50">
+                <h3 class="w-48 font-sans font-bold text-lg p-1"><%= product.name %></h3>
+                <span class="bg-lime-600 rounded text-sm text-white p-1"><%= product.status %></span>
+                <h3 class="font-sans text-lg p-1">$ <%= product.unit_price %></h3>
+              </div>
+              <div class="flex flex-col items-center m-auto bg-black w-32 h-11 rounded">
+                <a href="<%= shopping_cart_path(product) %>">
+                  <span class="font-sans text-sm text-white m-auto">Add to cart</span>
+                </a>
+              </div>
+            </div>
+          <% end %>
+          <%== pagy_nav(@pagy) if @pagy.pages > 1 %>
+        <% end %>
+      </div>
+    </turbo-frame>
+  </div>
+</div>
